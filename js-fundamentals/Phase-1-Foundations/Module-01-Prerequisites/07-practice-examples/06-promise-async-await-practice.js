@@ -29,6 +29,11 @@ const fetchArticle = (id) => {
 // Expected output: { id: 1, title: 'React Native UI Tips' }
 
 // Your code here:
+async function fetchArticle1(){
+  const article = await fetchArticle(1);
+  console.log(article);
+}
+fetchArticle1();
 
 // ==========================================
 // Q2: Try / Catch
@@ -43,6 +48,15 @@ const fetchArticle = (id) => {
 // Expected output: "Error: Article missing"
 
 // Your code here:
+async function fetchArticle99(){
+  try {
+    const article = await fetchArticle(99);
+    console.log(article);
+  } catch (error)  {
+    console.log(error);
+  }
+  }
+  fetchArticle99();
 
 // ==========================================
 // Q3: Returning a value from Async
@@ -57,6 +71,11 @@ const fetchArticle = (id) => {
 // Expected output: "JavaScript Async Guide"
 
 // Your code here:
+async function getTitle(){
+  const article = await fetchArticle(2);
+  return article.title;
+}
+getTitle().then(data => console.log(data));
 
 // ==========================================
 // Q4: Promise.all (Parallel)
@@ -71,7 +90,11 @@ const fetchArticle = (id) => {
 // Expected output: [ { id: 1... }, { id: 2... } ]
 
 // Your code here:
-
+async function fetchbothArticles(){
+  const results = await Promise.all([fetchArticle(1),fetchArticle(2)]);
+  console.log(results);
+}
+fetchbothArticles();
 // ==========================================
 // Q5: Classic .then() / .catch()
 // ==========================================
@@ -84,3 +107,9 @@ const fetchArticle = (id) => {
 // Expected output: { id: 1, title: 'React Native UI Tips' }
 
 // Your code here:
+function fetchArticle1ThenCatch(){
+  fetchArticle(1)
+  .then(data => console.log(data))
+  .catch(error => console.log(error));
+} 
+fetchArticle1ThenCatch();

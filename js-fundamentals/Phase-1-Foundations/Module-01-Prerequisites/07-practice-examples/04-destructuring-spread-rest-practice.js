@@ -84,6 +84,9 @@ console.log(finalSettings);
 
 // Your code here:
 
+const updatedSkills = ["TypeScript", ...userProfile.skills];
+console.log(updatedSkills);
+
 // ==========================================
 // Q6: Rest Operator (...) in Destructuring
 // ==========================================
@@ -96,6 +99,8 @@ console.log(finalSettings);
 // Expected output: { id: 101, role: 'React Developer', skills: [ 'JavaScript', 'React', 'CSS' ] }
 
 // Your code here:
+const { name: userName, ...otherDetails } = userProfile;
+console.log(otherDetails);
 
 // ==========================================
 // Q7: Rest Operator (...) in Functions
@@ -110,3 +115,7 @@ console.log(finalSettings);
 // Expected output: [ 'React', 'Node', 'MongoDB' ]
 
 // Your code here:
+function logTechnologies(...techs) {
+  console.log(techs);
+}
+logTechnologies("React", "Node", "MongoDB");
